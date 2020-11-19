@@ -61,7 +61,7 @@ function! Tabline()
     " Start the tab string
     let tabstring .= '%' . tab . 'T' " start 'tab' here; denotes edges of highlight groups and clickable area
     let tabstring .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#') " the # encodes string with either highlight group
-    let tabtext .= ' ' . tab . '' " prefer zero-indexing
+    let tabtext .= ' ' " prefer zero-indexing
 
     " File name or placeholder if empty
     let fname = fnamemodify(bufname, ':t')
@@ -70,7 +70,7 @@ function! Tabline()
       if offset % 2 == 1 | let offset += 1 | endif
       let fname = '·'.fname[offset/2:len(fname)-offset/2].'·' " … use this maybe
     endif
-    let tabtext .= (bufname !=# '' ? '|'. fname . ' ' : '|? ')
+    let tabtext .= (bufname !=# '' ? ' '. fname . ' ' : '|? ')
 
     " Modification marker
     let bufmodified = getbufvar(bufnr, '&mod')
@@ -115,7 +115,6 @@ endfunction
 
 " Settings and highlight groups
 set showtabline=1 tabline=%!Tabline()
-hi TabLine     ctermfg=White ctermbg=Black cterm=None
-hi TabLineFill ctermfg=White ctermbg=Black cterm=None
-hi TabLineSel  ctermfg=Black ctermbg=White cterm=None
-
+hi TabLine     ctermfg=31 ctermbg=None cterm=None
+hi TabLineFill ctermfg=87 ctermbg=None cterm=None
+hi TabLineSel  ctermfg=87 ctermbg=None cterm=None
