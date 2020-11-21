@@ -114,7 +114,7 @@ function! Tabline()
 endfunction
 
 " Settings and highlight groups
-set showtabline=1 tabline=%!Tabline()
+set showtabline=2 tabline=%!Tabline()
 hi TabLine     ctermfg=31 ctermbg=None cterm=None
 hi TabLineFill ctermfg=87 ctermbg=None cterm=None
 hi TabLineSel  ctermfg=87 ctermbg=None cterm=None
